@@ -1,4 +1,5 @@
 require_relative '../../config/environment'
+
 class ApplicationController < Sinatra::Base
   configure do
     set :views, Proc.new { File.join(root, "../views/") }
@@ -29,14 +30,8 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/failure' do
-    erb :error
-  end
-
   get '/logout' do
     session.clear
     redirect to "/"
   end
-
-
 end
